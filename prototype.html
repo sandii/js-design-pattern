@@ -1,0 +1,19 @@
+<script>
+{
+
+let produce = (() => {
+	function F () {};
+	return proto => {
+		F.prototype = proto;
+		return new F();
+	};
+})();
+
+// using
+let o = produce({
+	x : 1,
+	y : 2,
+});
+
+}
+</script>
