@@ -1,0 +1,46 @@
+<button id="add-observer-btn">add observer</button>
+<input type="checkbox" id="subject-checkbox">
+<div id="observer-box"></div>
+
+<script>
+{
+
+let extend = (obj, extension) => {
+	for (let k in extension) {
+		obj[k] = extension[k];
+	}
+};
+let subject = document.getElementById('subject-checkbox');
+extend(subject, {
+	obs : [],
+	addOb (ob) {
+		this.obs.push(ob);
+	},
+	rmOb (ob) {
+		this.obs.forEach((_ob, i) => {
+			if (_ob === ob) {
+				this.obs.splice(i, 1);
+			}
+		});
+	},
+	broadcast (content) {
+		this.obs.forEach(ob => ob.send(content));
+	}
+});
+subject.onclick = e => subject.broadcast(subject.checked);
+
+document.getElementById('add-observer-btn').addEventListener('click', e => {
+	let ob = document.createElement('input');
+	ob.type = 'checkbox';
+	ob.send = content => (ob.checked = content);
+	subject.addOb(ob);
+	document.getElementById('observer-box').appendChild(ob);
+
+	ob.onclick = e => {
+		subject.rmOb(ob);
+		ob.parentNode.removeChild(ob);
+	};
+}, false);
+
+}
+</script>
