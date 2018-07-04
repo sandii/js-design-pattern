@@ -5,12 +5,12 @@
 <script>
 {
 
-let extend = (obj, extension) => {
+const extend = (obj, extension) => {
 	for (let k in extension) {
 		obj[k] = extension[k];
 	}
 };
-let subject = document.getElementById('subject-checkbox');
+const subject = document.getElementById('subject-checkbox');
 extend(subject, {
 	obs : [],
 	addOb (ob) {

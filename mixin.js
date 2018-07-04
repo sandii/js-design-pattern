@@ -1,7 +1,4 @@
-<script>
-{
-
-let mixin = {
+const mixin = {
 	forward  () {console.log(this.name +' is going forward'); },
 	backward () {console.log(this.name +' is going backward');},
 	attack () {console.log(this.name +' is attacking!!');},
@@ -35,6 +32,3 @@ let t50 = new Tank('t50');
 honda.forward();
 t50.forward();
 t50.attack();
-
-}
-</script>

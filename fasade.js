@@ -1,7 +1,4 @@
-<script>
-{
-
-let addEvent = (el, ev, fn) => {
+const addEvent = (el, ev, fn) => {
 	if (el.addEventListener) {
 		el.addEventListener(ev, fn, false);
 	} else if (el.attachEvent) {
@@ -10,6 +7,3 @@ let addEvent = (el, ev, fn) => {
 		el['on'+ ev] = fn;
 	}
 };
-
-}
-</script>

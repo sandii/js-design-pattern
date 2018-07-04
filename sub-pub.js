@@ -1,9 +1,6 @@
-<script>
+const subpub = {};
 {
-
-let subpub = {};
-{
-	let subs = {};
+	const subs = {};
 	let uid = 0;
 
 	subpub.sub = (topic, cbk) => {
@@ -35,15 +32,12 @@ let subpub = {};
 }
 
 // using
-let subToken1 = subpub.sub('/login', data => console.log(data));
-let subToken2 = subpub.sub('/login', data => console.info(data));
-let subToken3 = subpub.sub('/login', data => console.warn(data));
+const subToken1 = subpub.sub('/login', data => console.log(data));
+const subToken2 = subpub.sub('/login', data => console.info(data));
+const subToken3 = subpub.sub('/login', data => console.warn(data));
 
 subpub
 	.pub('/login', 'sandii is here')
 	.pub('/login', 'jack is here')
 	.unsub(subToken3)
 	.pub('/login', 'bobby is here');
-
-}
-</script>
